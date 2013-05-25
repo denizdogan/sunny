@@ -14,7 +14,7 @@ Usage
 
 
 Parameters
-^^^^^^^^^^
+----------
 
 Solr parameters are passed as dictionaries where every value may be
 either a string or a list of strings.
