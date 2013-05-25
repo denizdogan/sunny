@@ -34,6 +34,7 @@ class Solr(object):
     def query(self, params, resource = 'select'):
         import urllib, json
         params = normalize_params(params)
+        params['wt'] = 'json'
         query_string = urllib.urlencode(params)
         url = urljoin(self.url, resource)
         response = self._http.request('GET', url + '?' + query_string)
