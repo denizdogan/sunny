@@ -1,4 +1,7 @@
 from .compat import urljoin
+import json
+import urllib
+import urllib3
 
 
 try:
@@ -25,14 +28,12 @@ def normalize_params(params):
 class Solr(object):
 
     def __init__(self, url):
-        import urllib3
         self._http = urllib3.PoolManager()
         self.url = url
         if not self.url.endswith('/'):
             self.url += '/'
 
     def query(self, params, resource = 'select'):
-        import urllib, json
         params = normalize_params(params)
         params['wt'] = 'json'
         query_string = urllib.urlencode(params)
