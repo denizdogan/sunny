@@ -3,15 +3,28 @@ Sunny
 
 This is a very simple Solr interface for Python.
 
+Installation
+------------
+
+.. code-block:: bash
+
+    $ pip install sunny
 
 Usage
 -----
 
-    >> import sunny
-    >> solr = sunny.Solr('http://localhost:8080/solr')
-    >> solr.query({'q': 'office'})
-    {u'responseHeader': {u'status': 0, u'QTime': ...
+Create your Solr connection (actually a pool of connections) and then
+pass query parameters using simple dictionaries.  The raw Solr result
+is returned as a Python dictionary.
 
+.. code-block:: pycon
+
+    >>> import sunny
+    >>> solr = sunny.Solr('http://localhost:8080/solr')
+    >>> solr.query({'q': 'office',
+    ...             'facet': 'on',
+    ...             'facet.field': ['network', 'runtime']})
+    {u'responseHeader': {u'status': 0, u'QTime': ...
 
 Parameters
 ----------
@@ -19,18 +32,22 @@ Parameters
 Solr parameters are passed as dictionaries where every value may be
 either a string or a list of strings.
 
-Example:
+``wt=json`` is passed with every request no matter what, because JSON
+is easy to convert to Python objects.
+
+Example::
+
+.. code-block:: python
 
     {'q': 'office',
      'facet': 'on',
      'facet.field': ['network', 'runtime']}
-    ==>
-    ?q=office&facet=on&facet.field=network&facet.field=runtime
 
-If ``omdict`` is installed, you may use ``omdict`` instances instead.
+The above is equivalent to this query string:
+``?wt=json&q=office&facet=on&facet.field=network&facet.field=runtime``
 
-``wt=json`` is passed with every request no matter what.
-
+If the ``orderedmultidict`` package is installed, you may use
+``omdict`` instances instead of dictionaries.
 
 License
 -------
