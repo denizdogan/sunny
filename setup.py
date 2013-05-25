@@ -17,7 +17,7 @@ setup(
                   "with support for parameter keys with multiple values.",
     license = "BSD",
     keywords = "solr search",
-    url = "http://www.dogan.se/sunny",
+    url = "https://github.com/denizdogan/sunny",
     packages=['sunny'],
     long_description=read('README'),
     requires=['urllib3'],
