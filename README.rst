@@ -35,7 +35,7 @@ either a string or a list of strings.
 ``wt=json`` is passed with every request no matter what, because JSON
 is easy to convert to Python objects.
 
-Example::
+Example:
 
 .. code-block:: python
 
