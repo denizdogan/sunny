@@ -1,7 +1,7 @@
 from .compat import urljoin
+from urllib3.connectionpool import connection_from_url
 import json
 import urllib
-import urllib3
 
 
 try:
@@ -12,6 +12,9 @@ except ImportError:
 
 
 def normalize_params(params):
+    """
+    Normalize ``params`` to a list of key-value tuples.
+    """
     if _omdict_support and isinstance(params, omdict):
         return params.allitems()
     elif isinstance(params, dict):
@@ -28,14 +31,14 @@ def normalize_params(params):
 class Solr(object):
 
     def __init__(self, url):
-        self._http = urllib3.PoolManager()
+        self._http = connection_from_url(url)
         self.url = url
         if not self.url.endswith('/'):
             self.url += '/'
 
     def query(self, params, resource = 'select'):
-        params = normalize_params(params)
         params['wt'] = 'json'
+        params = normalize_params(params)
         query_string = urllib.urlencode(params)
         url = urljoin(self.url, resource)
         response = self._http.request('GET', url + '?' + query_string)
