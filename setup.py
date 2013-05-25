@@ -1,12 +1,11 @@
-import os
 from setuptools import setup
+import os
+import sys
 
-# Utility function to read the README file.
-# Used for the long_description.  It's nice, because now 1) we have a top level
-# README file and 2) it's easier to type in the README file than to put a raw
-# string in below ...
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+if __name__ == '__main__':
+    if sys.argv[-1] == 'publish':
+        os.system('python setup.py sdist upload')
+        sys.exit()
 
 setup(
     name = "sunny",
@@ -19,13 +18,13 @@ setup(
     keywords = "solr search",
     url = "https://github.com/denizdogan/sunny",
     packages=['sunny'],
-    long_description=read('README.md'),
-    requires=['urllib3'],
+    long_description=open('README.md').read(),
+    install_requires=open('requirements.txt').readlines(),
     classifiers=[
         "Development Status :: 3 - Alpha",
-        "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
-        "License :: OSI Approved :: BSD License",
         "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
         "Programming Language :: Python :: 2",
+        "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
     ],
 )
