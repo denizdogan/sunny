@@ -10,7 +10,6 @@ def solr():
 @pytest.fixture(scope='function')
 def ex_params():
     return {'q': 'office',
-            'wt': 'json',
             'facet': 'on',
             'facet.field': ['network', 'runtime']}
 
