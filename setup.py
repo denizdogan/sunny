@@ -19,7 +19,7 @@ setup(
     keywords = "solr search",
     url = "https://github.com/denizdogan/sunny",
     packages=['sunny'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     requires=['urllib3'],
     classifiers=[
         "Development Status :: 3 - Alpha",
