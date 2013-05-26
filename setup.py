@@ -7,6 +7,14 @@ if __name__ == '__main__':
         os.system('python setup.py sdist upload')
         sys.exit()
 
+requirements = []
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
+description = ''
+with open('README.md') as f:
+    description = f.read()
+
 setup(
     name = "sunny",
     version = "0.0.4",
@@ -17,8 +25,8 @@ setup(
     keywords = "solr search",
     url = "http://denizdogan.github.io/sunny/",
     packages=['sunny'],
-    long_description=open('README.md').read(),
-    install_requires=open('requirements.txt').readlines(),
+    long_description=description,
+    install_requires=requirements,
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
