@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
 setup(
     name = "sunny",
-    version = "0.0.3",
+    version = "0.0.4",
     author = "Deniz Dogan",
     author_email = "deniz@dogan.se",
     description = "Minimalistic interface to Solr.",
