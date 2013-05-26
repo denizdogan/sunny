@@ -5,7 +5,7 @@ import urllib
 
 
 try:
-    import omdict
+    from orderedmultidict import omdict
     _omdict_support = True
 except ImportError:
     _omdict_support = False
@@ -39,7 +39,7 @@ class Solr(object):
     def query(self, params, resource = 'select'):
         params['wt'] = 'json'
         params = normalize_params(params)
-        query_string = urllib.urlencode(params)
+        query_string = urllib.urlencode(params, doseq=True)
         url = urljoin(self.url, resource)
         response = self._http.request('GET', url + '?' + query_string)
         return json.loads(response.data, 'utf-8')

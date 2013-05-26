@@ -9,16 +9,15 @@ if __name__ == '__main__':
 
 setup(
     name = "sunny",
-    version = "0.0.2",
+    version = "0.0.3",
     author = "Deniz Dogan",
     author_email = "deniz@dogan.se",
-    description = "Yet another minimalistic interface to Solr, "
-                  "with support for parameter keys with multiple values.",
+    description = "Minimalistic interface to Solr.",
     license = "BSD",
     keywords = "solr search",
-    url = "https://github.com/denizdogan/sunny",
+    url = "http://denizdogan.github.io/sunny/",
     packages=['sunny'],
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     install_requires=open('requirements.txt').readlines(),
     classifiers=[
         "Development Status :: 3 - Alpha",

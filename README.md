@@ -6,9 +6,9 @@ This is a very simple Solr interface for Python.
 Installation
 ------------
 
-.. code-block:: bash
-
-    $ pip install sunny
+```bash
+$ pip install sunny
+```
 
 Usage
 -----
@@ -17,14 +17,14 @@ Create your Solr connection (actually a pool of connections) and then
 pass query parameters using simple dictionaries.  The raw Solr result
 is returned as a Python dictionary.
 
-.. code-block:: pycon
-
-    >>> import sunny
-    >>> solr = sunny.Solr('http://localhost:8080/solr')
-    >>> solr.query({'q': 'office',
-    ...             'facet': 'on',
-    ...             'facet.field': ['network', 'runtime']})
-    {u'responseHeader': {u'status': 0, u'QTime': ...
+```python
+>>> import sunny
+>>> solr = sunny.Solr('http://localhost:8080/solr')
+>>> solr.query({'q': 'office',
+...             'facet': 'on',
+...             'facet.field': ['network', 'runtime']})
+{u'responseHeader': {u'status': 0, u'QTime': ...
+```
 
 Parameters
 ----------
@@ -37,11 +37,14 @@ is easy to convert to Python objects.
 
 Example:
 
-.. code-block:: python
-
-    {'q': 'office',
-     'facet': 'on',
-     'facet.field': ['network', 'runtime']}
+```python
+>>> import sunny
+>>> solr = sunny.Solr('http://localhost:8080/solr')
+>>> solr.query({'q': 'office',
+...             'facet': 'on',
+...             'facet.field': ['network', 'runtime']})
+{u'responseHeader': {u'status': 0, u'QTime': ...
+```
 
 The above is equivalent to this query string:
 ``?wt=json&q=office&facet=on&facet.field=network&facet.field=runtime``
