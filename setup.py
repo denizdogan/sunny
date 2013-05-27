@@ -27,6 +27,9 @@ setup(
     packages=['sunny'],
     long_description=description,
     install_requires=requirements,
+    extras_require = {
+        'omdict':  ['orderedmultidict'],
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
