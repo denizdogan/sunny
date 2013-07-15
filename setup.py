@@ -23,7 +23,7 @@ setup(
     description = "Minimalistic interface to Solr.",
     license = "BSD",
     keywords = "solr search",
-    url = "http://denizdogan.github.io/sunny/",
+    url = "http://sunny.dogan.se/",
     packages=['sunny'],
     long_description=description,
     install_requires=requirements,

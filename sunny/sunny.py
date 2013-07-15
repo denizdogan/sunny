@@ -15,6 +15,7 @@ def normalize_params(params):
     """
     Normalize ``params`` to a list of key-value tuples.
     """
+
     if _omdict_support and isinstance(params, omdict):
         return params.allitems()
     elif isinstance(params, dict):
